@@ -11,10 +11,14 @@ public class Personagem {
 
     public void receberDano(int dano){
         this.vida -= dano;
-            System.out.println(this.nome + "recebeu " + dano + " de dano. Vida restante: " + this.vida);
-            if (this.vida <= 0) {
-                System.out.println("O ataque falhou! " + this.nome + " foi derrotado.");
-            }
+        if (this.vida < 0) {
+            this.vida = 0;
+        }
+
+        System.out.println(this.nome + " recebeu " + dano + " de dano. Vida restante: " + this.vida);
+        if (this.vida <= 0) {
+            System.out.println(this.nome + " foi derrotado.");
+        }
     }
 
     public void atacar(Personagem alvo) {
